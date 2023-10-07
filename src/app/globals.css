@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --rojo-netflix: rgb(229, 9, 20);
+  --negro-netflix: #000000;
+  --negro-netflix-ligero:rgb(20, 20, 20);
+  --blanco-netflix: #FFFFFF;
+  --gris:rgba(255, 255, 255, 0.478);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +19,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--blanco-netflix);
+  background: var(--negro-netflix-ligero);
+  height: 100%;
 }
