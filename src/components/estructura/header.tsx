@@ -1,7 +1,7 @@
 function Header(){
     return(
         <>
-            <header className=" w-full relative overflow-hidden">
+            <header id="head" className=" w-full relative overflow-hidden">
             <img src='./tanjiro.png' alt="serie imagen" className="w-full relative"></img>
                 <div className="h-full w-full absolute top-40 left-10 ">
                     <img src='./logoDemon.png' alt="serie imagen" className="h-50"></img>

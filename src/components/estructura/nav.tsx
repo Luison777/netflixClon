@@ -1,9 +1,10 @@
 'use client'
 import { useEffect, useState} from 'react';
-
+import  '../../css/tooltip.css';
 function Nav(){
     const flexAlign="inline-block flex items-center";
     const [gradiente,setGradiente]=useState('to-transparent');
+    const [seeIcon,setSeeIcon]=useState({'notify':'hidden','banner':'hidden'});
     const [search,setSearch]=useState({
         'w':'w-5',
         'bg':'',
@@ -11,7 +12,7 @@ function Nav(){
         'open':false
     });
 
-    //este bloque maneja la animacion del background de la barra nav
+ //este bloque maneja la animacion del background de la barra nav
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
       }, []);
@@ -22,7 +23,7 @@ function Nav(){
             setGradiente('to-transparent');
         }
     }
-    //este bloque maneja la animacion de la barra search
+//este bloque maneja la animacion de la barra search
     useEffect(() => {
         const handleClick = () => {
             setSearch({...search,
@@ -63,9 +64,51 @@ function Nav(){
             });    
         }
     }
+//este bloque de codigo agrega la animacion de hover al icono de notificacion
+    useEffect(()=>{
+    const notificacion=document.getElementById('notification');
+    const notificationInfo=document.getElementById('notificationInfo');
+        if(notificacion){
+            notificacion.addEventListener("mouseenter", () => {
+                // Este código se ejecuta cuando el cursor entra en el elemento
+                setSeeIcon({...seeIcon,'notify':''});
+                notificationInfo?.addEventListener("mouseenter",()=>{
+                    setSeeIcon({...seeIcon,'notify':''});
+                    notificationInfo?.addEventListener("mouseleave",()=>{
+                        setSeeIcon({...seeIcon,'notify':'hidden'});
+                    });
+                });
+            });
+            notificacion.addEventListener("mouseleave", () => {
+                // Este código se ejecuta cuando el cursor sale del elemento
+                setSeeIcon({...seeIcon,'notify':'hidden'});
+            });
+        }
+    },[]);
+//este bloque agrega la animacion al icono de banner
+    useEffect(()=>{
+    const banner=document.getElementById('banner');
+    const bannerInfo=document.getElementById('bannerInfo');
+        if(banner){
+            banner.addEventListener("mouseenter", () => {
+                // Este código se ejecuta cuando el cursor entra en el elemento
+                setSeeIcon({...seeIcon,'banner':''});
+                bannerInfo?.addEventListener("mouseenter",()=>{
+                    setSeeIcon({...seeIcon,'banner':''});
+                    bannerInfo?.addEventListener("mouseleave", () => {
+                        // Este código se ejecuta cuando el cursor sale del elemento
+                        setSeeIcon({...seeIcon,'banner':'hidden'});
+                    });
+                });
+            });
+            banner.addEventListener("mouseleave", () => {
+                // Este código se ejecuta cuando el cursor sale del elemento
+                setSeeIcon({...seeIcon,'banner':'hidden'});
+            });
+        }
+    },[]);
 
     return(
-       
         <nav className={`text-sm h-14 flex items-center w-full fixed z-50  bg-gradient-to-b from-black  ${gradiente} `}>
             <ul className="space-x-4 w-full flex">
                 <li className= {`${flexAlign} w-1/12`} >
@@ -88,11 +131,11 @@ function Nav(){
                             <input placeholder='Titulo, personas, género' className={`absolute left-7 bg-transparent outline-none ${search.inputW}`} onClick={(e) => e.stopPropagation()}/>
                         </button>
                     </div>
-                    
-                    <img src='./logo/notification.svg' alt="netflix logo" className="h-5  absolute right-24"/>
-                    <img src='./logo/banner.svg' alt="netflix logo" className="h-8  absolute right-14"/>
+                    <img id='notification' src='./logo/notification.svg' alt="netflix logo" className="h-5  absolute right-24"/>
+                    <div id='notificationInfo' className={`${seeIcon.notify} tooltip absolute bg-black/50 border-2 w-56 h-20 top-8 right-24`}></div>
+                    <img id='banner' src='./logo/banner.svg' alt="netflix logo" className="h-8  absolute right-14"/>
+                    <div id='bannerInfo' className={`${seeIcon.banner} tooltip absolute bg-black/50 border-2 w-44 h-28 top-8 right-16`}></div>
                 </li>
-
             </ul>
         </nav>
         
