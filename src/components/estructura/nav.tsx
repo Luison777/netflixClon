@@ -132,11 +132,11 @@ function Nav(){
                         </button>
                     </div>
                     <img id='notification' src='./logo/notification.svg' alt="notification" className="h-5  absolute right-24"/>
-                    <div id='notificationInfo' className={`${seeIcon.notify} border-t-4 tooltip absolute bg-black/50 border-2 w-56 h-20 top-8 right-24`}>
+                    <div id='notificationInfo' className={`${seeIcon.notify} border-t-4 tooltiptop absolute bg-black/50 border-2 w-56 h-20 top-8 right-24`}>
 
                     </div>
                     <img id='banner' src='./logo/banner.svg' alt="banner" className="h-8  absolute right-14"/>
-                    <div id='bannerInfo' className={`${seeIcon.banner} flex items-end text-xs tooltip absolute bg-black/50 border-2 border-t-4 w-44 h-36 top-8 right-16`}>
+                    <div id='bannerInfo' className={`${seeIcon.banner} flex items-end text-xs tooltiptop absolute bg-black/50 border-2 border-t-4 w-44 h-36 top-8 right-16`}>
                         <div className='absolute left-10 top-5'>Administrar Perfiles
                             <img src='./logo/admin.svg' alt="admin" className="h-5 absolute right-28 bottom-0"/>
                         </div>

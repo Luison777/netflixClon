@@ -15,7 +15,7 @@ function Header(){
                         <img src='./logo/play.svg' alt="serie imagen" className="h-8 ml-5 mr-2"></img>
                             Reproducir
                         </button>
-                        <button className="bg-gray-950/80 h-10 w-50 mr-5 mt-5 text-white font-semibold rounded flex items-center inline-block ">
+                        <button className="bg-gray-950/80 h-10 w-52 mr-5 mt-5 text-white font-semibold rounded flex items-center inline-block ">
                         <img src='./logo/info.svg' alt="serie imagen" className="h-8 ml-5 mr-2"></img>
                             Más información
                         </button>

@@ -1,15 +1,25 @@
-.tooltip::after {
+.tooltiptop::after {
     content: " ";
     position: absolute;
-    bottom: 100%;  /* At the top of the tooltip */
-    left: 95%;
+    bottom: 100%;  
+    left: 94%;
     margin-left: -5px;
-    border-width: 8px;
+    border-width: 10px;
     border-style: solid;
     border-color: transparent transparent white transparent;
 
   }
+  .tooltipbottom::after {
+    content: " ";
+    position: absolute;
+    top: 100%; 
+    left: 47%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
 
+  }
 .flexalign{
   display: flex;
   align-items:center;
