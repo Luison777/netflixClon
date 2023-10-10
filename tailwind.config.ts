@@ -20,8 +20,11 @@ const config: Config = {
     },
     extend: {
       spacing: {
-        '50': '13rem',
-        '90': '40rem'
+        '50':'12rem',
+        '52': '13rem',
+        '88': '22rem',
+        '90':'23rem',
+        '160': '40rem'
       },
       colors: {
         'negro-netflix-ligero': 'rgb(20, 20, 20)',

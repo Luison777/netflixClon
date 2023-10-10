@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useState} from 'react';
-import  '../../css/tooltip.css';
+import  '../../css/utils.css';
 function Nav(){
-    const flexAlign="inline-block flex items-center";
+    const flexAlign=" flex items-center";
     const [gradiente,setGradiente]=useState('to-transparent');
     const [seeIcon,setSeeIcon]=useState({'notify':'hidden','banner':'hidden'});
     const [search,setSearch]=useState({
@@ -131,10 +131,23 @@ function Nav(){
                             <input placeholder='Titulo, personas, género' className={`absolute left-7 bg-transparent outline-none ${search.inputW}`} onClick={(e) => e.stopPropagation()}/>
                         </button>
                     </div>
-                    <img id='notification' src='./logo/notification.svg' alt="netflix logo" className="h-5  absolute right-24"/>
-                    <div id='notificationInfo' className={`${seeIcon.notify} tooltip absolute bg-black/50 border-2 w-56 h-20 top-8 right-24`}></div>
-                    <img id='banner' src='./logo/banner.svg' alt="netflix logo" className="h-8  absolute right-14"/>
-                    <div id='bannerInfo' className={`${seeIcon.banner} tooltip absolute bg-black/50 border-2 w-44 h-28 top-8 right-16`}></div>
+                    <img id='notification' src='./logo/notification.svg' alt="notification" className="h-5  absolute right-24"/>
+                    <div id='notificationInfo' className={`${seeIcon.notify} border-t-4 tooltip absolute bg-black/50 border-2 w-56 h-20 top-8 right-24`}>
+
+                    </div>
+                    <img id='banner' src='./logo/banner.svg' alt="banner" className="h-8  absolute right-14"/>
+                    <div id='bannerInfo' className={`${seeIcon.banner} flex items-end text-xs tooltip absolute bg-black/50 border-2 border-t-4 w-44 h-36 top-8 right-16`}>
+                        <div className='absolute left-10 top-5'>Administrar Perfiles
+                            <img src='./logo/admin.svg' alt="admin" className="h-5 absolute right-28 bottom-0"/>
+                        </div>
+                        <div className='absolute left-10 top-12'>Cuenta
+                            <img src='./logo/user.svg' alt="user" className="h-5 absolute right-12 bottom-0"/>
+                        </div>
+                        <div className='absolute left-10 top-20'>Centro de Ayuda    
+                            <img src='./logo/help.svg' alt="help" className="h-5 absolute right-24 bottom-0"/>
+                        </div>
+                        <div className='w-full border-t-2 h-8 py-2 px-5'>Cerrar Sesión de Netflix</div>
+                    </div>
                 </li>
             </ul>
         </nav>
