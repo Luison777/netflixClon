@@ -30,9 +30,7 @@ const config: Config = {
         'negro-netflix-ligero': 'rgb(20, 20, 20)',
         'gris': 'rgb(255, 255, 255)',
       },
-      scale: {
-        '200': '2',
-      }
+    
      
     },
   },

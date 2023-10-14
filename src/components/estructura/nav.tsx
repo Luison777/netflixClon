@@ -4,7 +4,7 @@ import  '../../css/utils.css';
 function Nav(){
     const flexAlign=" flex items-center";
     const [gradiente,setGradiente]=useState('to-transparent');
-    const [seeIcon,setSeeIcon]=useState({'notify':'hidden','banner':'hidden'});
+    const [seeIcon,setSeeIcon]=useState({'notify':'hidden','banner':'hidden',tooltip:'tooltipbanner'});
     const [search,setSearch]=useState({
         'w':'w-5',
         'bg':'',
@@ -26,12 +26,15 @@ function Nav(){
 //este bloque maneja la animacion de la barra search
     useEffect(() => {
         const handleClick = () => {
+            
             setSearch({...search,
                 'w':'w-5',
                 'bg':'',
                 'inputW':'hidden',
                 'open':false,
             });    
+            
+      
         };
       
         if (search.open === true) {
@@ -48,6 +51,7 @@ function Nav(){
 
     function searchclick(){
         if(search.w=='w-5'){
+            
             setSearch({...search,
                 'w':'w-56',
                 'bg':'bg-black/50 border-2 border-inherit', 
@@ -92,9 +96,9 @@ function Nav(){
         if(banner){
             banner.addEventListener("mouseenter", () => {
                 // Este código se ejecuta cuando el cursor entra en el elemento
-                setSeeIcon({...seeIcon,'banner':''});
+                setSeeIcon({...seeIcon,'banner':'',tooltip:'tooltipbanner rotate-180'});
                 bannerInfo?.addEventListener("mouseenter",()=>{
-                    setSeeIcon({...seeIcon,'banner':''});
+                    setSeeIcon({...seeIcon,'banner':'',tooltip:'tooltipbanner rotate-180'});
                     bannerInfo?.addEventListener("mouseleave", () => {
                         // Este código se ejecuta cuando el cursor sale del elemento
                         setSeeIcon({...seeIcon,'banner':'hidden'});
@@ -128,14 +132,15 @@ function Nav(){
                     <div className={`${flexAlign} absolute right-32 h-8 transition-width duration-150 ease-in ${search.bg} ${search.w}`}>
                         <button  onClick={(e) => { e.stopPropagation(); searchclick();}} className={`${flexAlign}`}>
                             <img src='./logo/search.svg' alt="netflix logo" className="h-5 w-5 absolute left-1 z-10"/>
-                            <input placeholder='Titulo, personas, género' className={`absolute left-7 bg-transparent outline-none ${search.inputW}`} onClick={(e) => e.stopPropagation()}/>
+                            <input id='inputSearch' placeholder='Titulo, personas, género' className={`absolute left-7 bg-transparent outline-none ${search.inputW}`} onClick={(e) => e.stopPropagation()}/>
                         </button>
                     </div>
                     <img id='notification' src='./logo/notification.svg' alt="notification" className="h-5  absolute right-24"/>
                     <div id='notificationInfo' className={`${seeIcon.notify} border-t-4 tooltiptop absolute bg-black/50 border-2 w-56 h-20 top-8 right-24`}>
-
                     </div>
+
                     <img id='banner' src='./logo/banner.svg' alt="banner" className="h-8  absolute right-14"/>
+                    <div className={seeIcon.tooltip}></div>
                     <div id='bannerInfo' className={`${seeIcon.banner} flex items-end text-xs tooltiptop absolute bg-black/50 border-2 border-t-4 w-44 h-36 top-8 right-16`}>
                         <div className='absolute left-10 top-5'>Administrar Perfiles
                             <img src='./logo/admin.svg' alt="admin" className="h-5 absolute right-28 bottom-0"/>

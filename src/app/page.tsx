@@ -3,7 +3,8 @@ import Nav from "../components/estructura/nav";
 import Main from "../components/estructura/main";
 import Footer from "../components/estructura/footer";
 import Header from "../components/estructura/header";
-import Carrusel from '@/components/reutilizables/carrusel';
+import Carousel from '@/components/reutilizables/carousel';
+
 
 
 
@@ -13,8 +14,7 @@ export default function Home() {
       <Nav></Nav>
       <Header></Header>
       <Main>
-        <Carrusel></Carrusel>
-        <Carrusel></Carrusel>
+        <Carousel></Carousel>
       </Main>
       <Footer></Footer> 
     </RootLayout>

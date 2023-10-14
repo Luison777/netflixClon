@@ -22,7 +22,7 @@ function Footer(){
                 </li>
                 <li className="inline-block mr-20">
                     <a href="#"className="block mb-3">Tarjetas de regalo</a>
-                    <a href="#"className="block mb-3">tienda de Netflix</a>
+                    <a href="#"className="block mb-3">Tienda de Netflix</a>
                     <a href="#"className="block mb-3">Preferencia de cookies</a>
                 </li>
                 <li className="inline-block mr-20">

@@ -8,8 +8,8 @@ interface CardProps {
   }
 function Tarjeta(props:CardProps){
     const [sizeCard,setSizeCard]=useState({
-        container:{height:'h-28', width:'w-48'},
-        img:{height:'h-full'},
+        container:{height:'h-full', width:'w-full'},
+        img:{width:'w-full'},
         infoCard:'hidden'
     });
     const [barralike,setBarraLike]=useState({
@@ -23,15 +23,15 @@ function Tarjeta(props:CardProps){
             const newSizeCard={...sizeCard};
             newSizeCard.container.width='w-80 shadow-xl shadow-black z-50';
             newSizeCard.container.height='h-88';
-            newSizeCard.img.height='h-50';
+            newSizeCard.img.width='w-66';
             newSizeCard.infoCard='';
             setSizeCard(newSizeCard);
         })
         containerCard?.addEventListener('mouseleave',()=>{
             const newSizeCard={...sizeCard};
-            newSizeCard.container.width='w-48';
-            newSizeCard.container.height='h-28';
-            newSizeCard.img.height='h-full';
+            newSizeCard.container.width='w-full';
+            newSizeCard.container.height='h-full';
+            newSizeCard.img.width='w-full';
             newSizeCard.infoCard='hidden';
             setSizeCard(newSizeCard);
         })
@@ -62,9 +62,9 @@ function Tarjeta(props:CardProps){
     },[]);
 
     return(
-        <div className='relative bottom-0 h-28 w-48 mr-2'>
-        <div id={props.id} className={`${sizeCard.container.height} ${sizeCard.container.width} ${props.style} absolute translate-y-2/3 bottom-2/3 bg-negro-netflix-ligero rounded-md `}>
-            <img alt='serieContent' src='./tanjiro.png' className={`${sizeCard.img.height} rounded-md object-cover object-center`}></img>
+        <div className='relative bottom-0 h-full w-1/6 mr-2'>
+        <div id={props.id} className={`${sizeCard.container.height} ${sizeCard.container.width} ${props.style} overflow-hidden absolute translate-y-2/3 bottom-2/3 bg-negro-netflix-ligero rounded-md `}>
+            <img alt='serieContent' src='./tanjiro.png' className={`${sizeCard.img.width} rounded-md object-cover object-center`}></img>
             <div className={sizeCard.infoCard}>
                 <div className='relative top-5'>
                     <Icon id={`play${props.id}`} src='./logo/play.svg' text='Play' position='absolute left-8' style='bg-white hover:bg-neutral-300' iconHeight='h-8 ml-1'></Icon>
