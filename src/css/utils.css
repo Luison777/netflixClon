@@ -7,6 +7,7 @@
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent white transparent;
+    z-index: 500;
   }
   .tooltipbottom::after {
     content: " ";
@@ -17,6 +18,7 @@
     border-width: 10px;
     border-style: solid;
     border-color: white transparent transparent transparent;
+    z-index: 500;
   }
   .tooltipbanner {
     content: " ";
@@ -44,16 +46,20 @@
 @keyframes slideLeft {
   from {
       transform: translateX(0);
+
   }
   to {
       transform: translateX(-100%);
+
   }
 }
 @keyframes slideRight {
   from {
       transform: translateX(-100%);
+
   }
   to {
       transform: translateX(0);
+
   }
 }

@@ -8,7 +8,7 @@ interface BlockProps{
 function Block(props:BlockProps){
 
     return(
-        <div className={`${props.style} w-full h-full flex relative bottom-0 `}>
+        <div className={`${props.style} w-full h-full flex relative bottom-0 -z-20`}>
             
             <Tarjeta id={`${props.id}card1`} ></Tarjeta>
             <Tarjeta id={`${props.id}card2`} style='translate-x-1/2 right-1/2' ></Tarjeta>
