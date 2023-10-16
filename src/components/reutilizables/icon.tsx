@@ -6,7 +6,7 @@ interface IconProps {
     id: string,
     text:string,
     src:string,
-    position:string,
+    position?:string,
     style?:string,
     iconHeight:string,
     children?: React.ReactNode;

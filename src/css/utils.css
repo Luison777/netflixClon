@@ -50,7 +50,8 @@
   }
   to {
       transform: translateX(-100%);
-
+      position: relative;
+     
   }
 }
 @keyframes slideRight {
@@ -60,6 +61,7 @@
   }
   to {
       transform: translateX(0);
-
+      position: relative;
+     
   }
 }

@@ -13,6 +13,7 @@ function Carousel(props:CarouselProps){
     //este bloque cambia los tamaños de los bloques para la animacion de carrusel
     const [blockStyle,setBlockStyle]=useState('');
     const [pressPrevious,setPressPrevious]=useState(false);
+    const [overCarousel,setoverCarousel]=useState(false);
 
     useEffect(()=>{
         let blockPlus=document.getElementById(`${props.id}block${currentBlock-2}`);
@@ -42,26 +43,36 @@ function Carousel(props:CarouselProps){
         setCurrentBlock(currentBlock-1);
         setPressPrevious(true);
     };
+    //este bloque arregla el bug del z index de las tarjetas despues de hacer lick en boton del carussel
+    useEffect(()=>{
+        const carousel=document.getElementById(props.id);
+        carousel?.addEventListener("mouseenter",()=>{
+            setoverCarousel(true);
+        });
+        carousel?.addEventListener("mouseleave",()=>{
+            setoverCarousel(false);
+        });
+    });
 
     return(
-        <div className={`flex justify-between items-center h-28 w-full ${props.style}  relative -z-20`}>
-            <button id='previous' disabled={currentBlock>0? false:true} onClick={previousImage} className={`bg-black/50 w-16 h-full relative z-50`}>
+        <div id={props.id} className={`flex justify-between items-center h-28 w-full ${props.style} relative ${overCarousel? 'z-40':'z-0'} `}>
+            <button id='previous' disabled={currentBlock>0? false:true} onClick={previousImage} className={`bg-black/50 w-16 h-full relative z-40`}>
                 <img src='/logo/arrow.svg' className={`${currentBlock>0? 'visible':'hidden'} rotate-90 h-2/3`}></img> 
             </button>
-            <div className='w-11/12 h-full flex relative -z-20'>
+            <div className='w-11/12 h-full flex relative '>
                 <p className='absolute left-0 -top-10 text-2xl font-bold ml-4 -z-10'>{props.title}</p>
-                <div id={`${props.id}block0`} className={`${blockStyle} transition-width duration-1000 ease-in-out w-full relative flex-shrink-0 -z-20`} >
+                <div id={`${props.id}block0`} className={`${blockStyle} transition-width duration-1000 ease-in-out w-full relative flex-shrink-0 `} >
                     <Block id={`${props.id}bloque0`}></Block>
                 </div>
                 <div id={`${props.id}block1`} className={`${blockStyle} transition-width duration-1000 ease-in-out w-full relative flex-shrink-0 `} >
-                    <Block id={`${props.id}bloque1`}></Block>
+                    <Block id={`${props.id}bloque1`} style=''></Block>
                 </div>
                 <div id={`${props.id}block2`} className={`${blockStyle} transition-width duration-1000 ease-in-out w-full relative flex-shrink-0 `} >
                     <Block id={`${props.id}bloque2`}></Block>
                 </div>
                 
             </div>
-            <button id='next' disabled={currentBlock<blocks.length-1? false:true} onClick={nextImage} className={`bg-black/50 w-16 h-full relative z-50`}>
+            <button id='next' disabled={currentBlock<blocks.length-1? false:true} onClick={nextImage} className={`bg-black/50 w-16 h-full relative z-40`}>
                 <img src='/logo/arrow.svg' className={`${currentBlock<blocks.length-1? 'visible':'hidden'} -rotate-90 h-2/3 `}></img> 
             </button>
         </div>

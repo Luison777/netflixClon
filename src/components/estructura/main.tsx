@@ -5,7 +5,7 @@ function Main({
   }){
     return(
 
-        <main className=" relative -top-[110px] overflow-hidden -z-20">
+        <main className=" relative -top-[110px] overflow-hidden ">
             {children}
         </main>
 
