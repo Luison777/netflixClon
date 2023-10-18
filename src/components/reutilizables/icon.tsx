@@ -4,7 +4,7 @@ import  '../../css/utils.css';
 
 interface IconProps {
     id: string,
-    text:string,
+    text?:string,
     src:string,
     position?:string,
     style?:string,
@@ -30,7 +30,7 @@ function Icon(props:IconProps){
     return(
         <div id={props.id} className={`${props.position} ${props.style} rounded-full h-10 w-10 flex items-center justify-center`}>
             <img  src={props.src} alt={props.id} className={props.iconHeight}/>
-            <div className={`${propsIcon.info} absolute bottom-12 whitespace-nowrap bg-white text-black rounded-md px-3 tooltipbottom`}>{props.text}</div>
+            <div className={`${propsIcon.info} absolute bottom-14 whitespace-nowrap bg-white text-black rounded-md px-3 ${props.text? 'tooltipbottom':''} `}>{props.text}</div>
             {props.children}
         </div>
     );

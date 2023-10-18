@@ -61,7 +61,7 @@ function Tarjeta(props:CardProps){
                         <Icon id={`play${props.id}`} src='./logo/play.svg' text='Play'  style='bg-white hover:bg-neutral-300 ml-5' iconHeight='h-8 ml-1'></Icon>
                         <Icon id={`check${props.id}`} src='./logo/check.svg' text='Quitar de mi lista'  style='mx-2 border-4 border-gray-400 hover:border-white hover:bg-neutral-800' iconHeight='h-6'></Icon>
                         <Icon id={`like${props.id}`} src='./logo/like.svg' text='Me gusta'  style={`${barralike.circle} hover:bg-neutral-800`} iconHeight='h-6 absolute z-10'></Icon>
-                        <div id={`barralike${props.id}`} className={`${barralike.like} w-36 h-14 bg-black absolute left-20 -top-2 left-16 z-0 rounded-3xl bg-neutral-900 shadow-xl shadow-black`}>
+                        <div id={`barralike${props.id}`} className={`${barralike.like} w-36 h-14 bg-black absolute left-16 -top-2 left-16 z-0 rounded-3xl bg-neutral-900 shadow-xl shadow-black`}>
                             <Icon id={`dislike${props.id}`} src='./logo/dislike.svg' text='No me gusta' position='absolute top-2 left-2' iconHeight='h-6 z-10' style='hover:bg-neutral-800'></Icon>
                             <Icon id={`encanta${props.id}`} src='./logo/encanta.svg' text='Me encanta' position='absolute top-2 right-2' iconHeight='h-6 z-10' style='hover:bg-neutral-800'></Icon>
                         </div>

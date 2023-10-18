@@ -5,6 +5,7 @@ import Main from "../components/estructura/main";
 import Footer from "../components/estructura/footer";
 import Header from "../components/estructura/header";
 import Carousel from '@/components/reutilizables/carousel';
+import Modal from '@/components/reutilizables/modal';
 
 
 export default function Home() {
@@ -15,11 +16,7 @@ export default function Home() {
       <Nav></Nav>
       <Header></Header>
       <Main>
-        <Carousel id='carousel1' title='Los más buscados' style='mt-16'></Carousel>
- 
-        <Carousel id='carousel2' title='carousel2' style='my-20'></Carousel>
-
-       
+        <Modal></Modal>   
       </Main>
       <Footer></Footer> 
     </RootLayout>
