@@ -95,7 +95,7 @@ function Modal(){
                         <div className="w-2/3 text-xl font-semibold">Episodios
                             <p className="text-sm font-normal	">Tanjiro Kamado, Arco de resolucion inquebrantable: 
                             <span className=' text-neutral-500 mr-2 border-2 rounded px-1'>TV-14</span>
-                            <span >miedo, sangre, lengiaje inapropiado, violencia</span>
+                            <span >miedo, sangre, lenguaje inapropiado, violencia</span>
                             </p>
                         </div>
                         <div className="w-1/3 ml-2">

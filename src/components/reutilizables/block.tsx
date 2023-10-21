@@ -6,9 +6,11 @@ interface BlockProps{
     style?:string
 }
 function Block(props:BlockProps){
+    const listaMock={
 
+    }
     return(
-        <div className={`${props.style} w-full h-full flex relative bottom-0 `}>
+        <div id={props.id} className={`${props.style} h-full flex `}>
             
             <Tarjeta id={`${props.id}card1`} ></Tarjeta>
             <Tarjeta id={`${props.id}card2`} style='translate-x-1/2 right-1/2' ></Tarjeta>

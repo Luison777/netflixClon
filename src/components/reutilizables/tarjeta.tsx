@@ -3,21 +3,15 @@ import { useEffect, useState,} from 'react';
 import  '../../css/utils.css';
 import Icon from './icon';
 import Link from 'next/link'
-
+import { useContext} from 'react';
+import { Contexto } from '@/servicios/memoria';
 interface CardProps {
     id: string,
     style?:string
   }
 function Tarjeta(props:CardProps){
-    const[styles,setStyles]=useState({
-        sizeCard:'h-full w-full ',
-        sizeImg:'h-full',
-        menuCard:'hidden'
-    });
-    const [barralike,setBarraLike]=useState({
-        like:'hidden',
-        circle:'border-4 border-gray-400'
-    });
+    const[styles,setStyles]=useState({sizeCard:'h-full w-full ',sizeImg:'h-full',menuCard:'hidden'});
+    const [barralike,setBarraLike]=useState({like:'hidden',circle:'border-4 border-gray-400'});
     //este bloque anima la tarjeta para aumentar de tamaño 
     const increaseSizeCard=()=>{
         setStyles({...styles,sizeCard:' h-72 w-80 z-50 shadow-xl shadow-black', sizeImg:'h-1/2 w-full',menuCard:'visible'})
@@ -53,11 +47,14 @@ function Tarjeta(props:CardProps){
             });
         })
     },[]);
-   
-
+    //este bloque obtiene el contexto de la memoria y los datos de cada tarjeta 
+    const lista=useContext(Contexto);
+    let card;
+    if(lista){card=lista[props.id]};
+    console.log(card);
     return(
         <div className={'relative h-full w-1/6 mr-2 rounded-md '}>
-            <div id={props.id} className={`${styles.sizeCard} ${props.style} absolute translate-y-2/3 bottom-2/3 rounded`}>
+            <div id={props.id} className={`${styles.sizeCard} ${props.style} absolute translate-y-1/2 bottom-1/2 rounded`}>
                 <img alt='serieContent' src='./tanjiro.png' className={`${styles.sizeImg} object-cover rounded`}></img>
                 <Link href="/modal">
               

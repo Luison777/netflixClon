@@ -5,7 +5,8 @@ import Header from "../components/estructura/header";
 import Main from "../components/estructura/main";
 import Footer from "../components/estructura/footer";
 import Nav from "../components/estructura/nav";
-import Carousel from '@/components/reutilizables/carousel';
+import CarouselList from '@/components/reutilizables/carouselList';
+import Memoria from '@/servicios/memoria';
 
 
 
@@ -25,11 +26,13 @@ export default function RootLayout(props: {
     <html lang="en">
       <body className={inter.className}>
         <Nav></Nav>
+        <Memoria>
         <Header></Header>
         <Main>
-          <Carousel id='carusel1' title='carusel1'></Carousel>
+          <CarouselList></CarouselList>
           {props.children}
         </Main>
+        </Memoria>
         <Footer></Footer>
       </body>
     </html>

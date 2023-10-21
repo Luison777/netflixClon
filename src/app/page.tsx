@@ -1,10 +1,5 @@
 
-import Carousel from '@/components/reutilizables/carousel';
-export default function Home() {
+export default function Default() {
   
-  return (
-    <>
-      
-    </>
-  )
+  return null;
 }
