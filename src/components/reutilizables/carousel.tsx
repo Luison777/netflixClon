@@ -43,7 +43,7 @@ function Carousel(props:CarouselProps){
         setCurrentBlock(currentBlock-1);
         setPressPrevious(true);
     };
-    //este bloque arregla el bug del z index de las tarjetas despues de hacer lick en boton del carussel
+    //este bloque arregla el bug del z index de las tarjetas despues de hacer click en boton del carussel
     useEffect(()=>{
         const carousel=document.getElementById(props.id);
         carousel?.addEventListener("mouseenter",()=>{

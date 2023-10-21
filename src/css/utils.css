@@ -23,14 +23,21 @@
   .tooltipbanner {
     content: " ";
     position: absolute;
-    right:50px; 
-    bottom:10px;
+
     margin-left: 2px;
     border-width: 7px;
     border-style: solid;
     border-color: transparent transparent white transparent;
   }
 
+  .tooltipdown {
+    content: " ";
+    position: absolute;
+    border-width: 7px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+  }
+  
 .flexalign{
   display: flex;
   align-items:center;

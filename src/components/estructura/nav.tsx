@@ -4,7 +4,7 @@ import  '../../css/utils.css';
 function Nav(){
     const flexAlign=" flex items-center";
     const [gradiente,setGradiente]=useState('to-transparent');
-    const [seeIcon,setSeeIcon]=useState({'notify':'hidden','banner':'hidden',tooltip:'tooltipbanner'});
+    const [seeIcon,setSeeIcon]=useState({'notify':'hidden','banner':'hidden',tooltip:'tooltipbanner left-6'});
     const [search,setSearch]=useState({
         'w':'w-5',
         'bg':'',
@@ -96,9 +96,9 @@ function Nav(){
         if(banner){
             banner.addEventListener("mouseenter", () => {
                 // Este código se ejecuta cuando el cursor entra en el elemento
-                setSeeIcon({...seeIcon,'banner':'',tooltip:'tooltipbanner rotate-180'});
+                setSeeIcon({...seeIcon,'banner':'',tooltip:'tooltipbanner rotate-180 left-6'});
                 bannerInfo?.addEventListener("mouseenter",()=>{
-                    setSeeIcon({...seeIcon,'banner':'',tooltip:'tooltipbanner rotate-180'});
+                    setSeeIcon({...seeIcon,'banner':'',tooltip:'tooltipbanner rotate-180 left-6'});
                     bannerInfo?.addEventListener("mouseleave", () => {
                         // Este código se ejecuta cuando el cursor sale del elemento
                         setSeeIcon({...seeIcon,'banner':'hidden'});

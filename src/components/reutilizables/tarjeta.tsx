@@ -2,6 +2,8 @@
 import { useEffect, useState,} from 'react';
 import  '../../css/utils.css';
 import Icon from './icon';
+import Link from 'next/link'
+
 interface CardProps {
     id: string,
     style?:string
@@ -51,11 +53,14 @@ function Tarjeta(props:CardProps){
             });
         })
     },[]);
+   
 
     return(
         <div className={'relative h-full w-1/6 mr-2 rounded-md '}>
             <div id={props.id} className={`${styles.sizeCard} ${props.style} absolute translate-y-2/3 bottom-2/3 rounded`}>
                 <img alt='serieContent' src='./tanjiro.png' className={`${styles.sizeImg} object-cover rounded`}></img>
+                <Link href="/modal">
+              
                 <div className={`${styles.menuCard} h-1/2 w-full bg-negro-netflix-ligero relative`}>
                     <div className='absolute top-4 w-full flex'>
                         <Icon id={`play${props.id}`} src='./logo/play.svg' text='Play'  style='bg-white hover:bg-neutral-300 ml-5' iconHeight='h-8 ml-1'></Icon>
@@ -79,6 +84,8 @@ function Tarjeta(props:CardProps){
                         </div>
                     </div>
                 </div>
+               
+                </Link>
             </div>
         </div>
     )
