@@ -10,9 +10,9 @@ interface CarouselProps{
 }
 function Carousel(props:CarouselProps){
     const [currentBlock,setCurrentBlock]=useState(0);
-    const blocks = ['a', 'b', 'c'];
+
     const ListaMock={
-        orden:[1,2,3]
+        orden:[1,2]
     }
     //este bloque cambia los tamaños de los bloques para la animacion de carrusel
     const [blockStyle,setBlockStyle]=useState('');
@@ -67,7 +67,7 @@ function Carousel(props:CarouselProps){
                 <p className='absolute left-0 -top-10 text-2xl font-bold ml-4 -z-10'>{props.title}</p>
                 {ListaMock.orden.map(id=> <Block key={id} id={`${props.id}block${id-1}`} style={`${blockStyle} transition-width duration-1000 ease-in-out w-full relative flex-shrink-0 `}/>)}
             </div>
-            <button id='next' disabled={currentBlock<blocks.length-1? false:true} onClick={nextImage} className={`bg-black/50 w-16 h-full relative z-40`}>
+            <button id='next' disabled={currentBlock<ListaMock.orden.length-1? false:true} onClick={nextImage} className={`bg-black/50 w-16 h-full relative z-40`}>
                 <img src='/logo/arrow.svg' className={`${currentBlock<ListaMock.orden.length-1? 'visible':'hidden'} -rotate-90 h-2/3 `}></img> 
             </button>
         </div>

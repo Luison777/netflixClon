@@ -51,13 +51,12 @@ function Tarjeta(props:CardProps){
     const lista=useContext(Contexto);
     let card;
     if(lista){card=lista[props.id]};
-    console.log(card);
+    
     return(
         <div className={'relative h-full w-1/6 mr-2 rounded-md '}>
             <div id={props.id} className={`${styles.sizeCard} ${props.style} absolute translate-y-1/2 bottom-1/2 rounded`}>
-                <img alt='serieContent' src='./tanjiro.png' className={`${styles.sizeImg} object-cover rounded`}></img>
+                <img alt={card?.img} src={`./series/${card?.img}`} className={`${styles.sizeImg} object-cover rounded`}></img>
                 <Link href="/modal">
-              
                 <div className={`${styles.menuCard} h-1/2 w-full bg-negro-netflix-ligero relative`}>
                     <div className='absolute top-4 w-full flex'>
                         <Icon id={`play${props.id}`} src='./logo/play.svg' text='Play'  style='bg-white hover:bg-neutral-300 ml-5' iconHeight='h-8 ml-1'></Icon>
@@ -71,13 +70,13 @@ function Tarjeta(props:CardProps){
                     </div>
                     <div className='absolute top-20 h-14 px-5 z-50 w-full'>
                         <div className='flex'>
-                            <p className='text-sm text-green-500 mr-2'>98% para ti </p>
-                            <div className='text-sm text-neutral-500 mr-2 border-2 rounded px-1'>TV-MA</div>
-                            <p className='text-sm text-neutral-500 mr-2'>3 temporadas</p>
+                            <p className='text-sm text-green-500 mr-2'>{card?.afinidad}</p>
+                            <div className='text-sm text-neutral-500 mr-2 border-2 rounded px-1'>{card?.calsificacion}</div>
+                            <p className='text-sm text-neutral-500 mr-2'>{card?.temporadas}</p>
                             <div className='text-xs right-12 border-2 rounded px-1'>HD</div>
                         </div>
                         <div className='mt-2 w-ful text-sm'>
-                            <p >•Sombrío •Emocionante •Anime de fantasía</p>
+                            <p >{card?.temas}</p>
                         </div>
                     </div>
                 </div>
