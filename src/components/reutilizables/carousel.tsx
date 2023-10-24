@@ -59,15 +59,15 @@ function Carousel(props:CarouselProps){
     });
 
     return(
-        <div id={props.id} className={`flex justify-between items-center h-28 w-full ${props.style} relative my-24 ${overCarousel? 'z-40':'z-0'} `}>
-            <button id='previous' disabled={currentBlock>0? false:true} onClick={previousImage} className={`bg-black/50 w-16 h-full relative z-40`}>
+        <div id={props.id} className={`flex justify-between items-center h-28 w-full ${props.style} relative my-24 -top-10  ${overCarousel? 'z-40':'z-0'} `}>
+            <button id='previous' disabled={currentBlock>0? false:true} onClick={previousImage} className={`${currentBlock>0? 'bg-black/50':'bg-transparent'} w-16 h-full relative z-40`}>
                 <img src='/logo/arrow.svg' className={`${currentBlock>0? 'visible':'hidden'} rotate-90 h-2/3`}></img> 
             </button>
             <div className='w-11/12 h-full flex relative '>
                 <p className='absolute left-0 -top-10 text-2xl font-bold ml-4 -z-10'>{props.title}</p>
                 {ListaMock.orden.map(id=> <Block key={id} id={`${props.id}block${id-1}`} style={`${blockStyle} transition-width duration-1000 ease-in-out w-full relative flex-shrink-0 `}/>)}
             </div>
-            <button id='next' disabled={currentBlock<ListaMock.orden.length-1? false:true} onClick={nextImage} className={`bg-black/50 w-16 h-full relative z-40`}>
+            <button id='next' disabled={currentBlock<ListaMock.orden.length-1? false:true} onClick={nextImage} className={`${currentBlock<ListaMock.orden.length-1? 'bg-black/50':'bg-transparent'} bg-black/50 w-16 h-full relative z-40`}>
                 <img src='/logo/arrow.svg' className={`${currentBlock<ListaMock.orden.length-1? 'visible':'hidden'} -rotate-90 h-2/3 `}></img> 
             </button>
         </div>

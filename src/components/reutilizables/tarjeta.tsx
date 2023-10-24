@@ -54,11 +54,11 @@ function Tarjeta(props:CardProps){
     
     return(
         <div className={'relative h-full w-1/6 mr-2 rounded-md '}>
-            <div id={props.id} className={`${styles.sizeCard} ${props.style} absolute translate-y-1/2 bottom-1/2 rounded`}>
-                <img alt={card?.img} src={`./series/${card?.img}`} className={`${styles.sizeImg} object-cover rounded`}></img>
-                <Link href="/modal">
-                <div className={`${styles.menuCard} h-1/2 w-full bg-negro-netflix-ligero relative`}>
-                    <div className='absolute top-4 w-full flex'>
+            <div id={props.id} className={`${styles.sizeCard} ${props.style} absolute translate-y-3/4 bottom-3/4 rounded bg-negro-netflix-ligero `}>
+                <img alt={card?.img} src={`./series/${card?.img}`} className={`${styles.sizeImg} w-full object-cover rounded`}></img>
+                <Link href={`/modal/${props.id}`} prefetch={false} scroll={false}>
+                <div className={`${styles.menuCard} h-1/2 w-full bg-negro-netflix-ligero relative rounded-br rounded-bl`}>
+                    <div className='absolute top-2 w-full flex'>
                         <Icon id={`play${props.id}`} src='./logo/play.svg' text='Play'  style='bg-white hover:bg-neutral-300 ml-5' iconHeight='h-8 ml-1'></Icon>
                         <Icon id={`check${props.id}`} src='./logo/check.svg' text='Quitar de mi lista'  style='mx-2 border-4 border-gray-400 hover:border-white hover:bg-neutral-800' iconHeight='h-6'></Icon>
                         <Icon id={`like${props.id}`} src='./logo/like.svg' text='Me gusta'  style={`${barralike.circle} hover:bg-neutral-800`} iconHeight='h-6 absolute z-10'></Icon>
@@ -68,7 +68,7 @@ function Tarjeta(props:CardProps){
                         </div>
                         <Icon id={`arrow${props.id}`} src='./logo/arrow.svg' text='Episodios e info' position='absolute right-5' style='border-4 border-gray-400 hover:border-white hover:bg-neutral-800' iconHeight='h-7'></Icon>
                     </div>
-                    <div className='absolute top-20 h-14 px-5 z-50 w-full'>
+                    <div className='absolute top-16 h-14 px-5 z-50 w-full'>
                         <div className='flex'>
                             <p className='text-sm text-green-500 mr-2'>{card?.afinidad}</p>
                             <div className='text-sm text-neutral-500 mr-2 border-2 rounded px-1'>{card?.calsificacion}</div>

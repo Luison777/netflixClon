@@ -1,10 +1,10 @@
 function Header(){
     return(
         <>
-            <header id="head" className=" w-full relative overflow-hidden ">
-            <img src='./tanjiro.png' alt="serie imagen" className="h-full w-full relative object-cover"></img>
+            <header id="head" className="h-[750px] w-full relative overflow-hidden ">
+            <img src='.\header\demonSlayer.jpg' alt="serie imagen" className="h-full w-full relative object-cover"></img>
                 <div className="h-full w-full absolute top-32 left-12 ">
-                    <img src='./logoDemon.png' alt="serie imagen" className="h-2/5"></img>
+                    <img src='.\header\logoDemon.png' alt="serie imagen" className="h-2/5"></img>
                     <div className="mt-5">Tanjiro emprende un viaje arriesgado para buscar una cura a la <br/>
                     maldicion de su hermana y vengar a su familia asesinada por un<br/>
                     demonio.
