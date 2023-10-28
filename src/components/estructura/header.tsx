@@ -1,7 +1,7 @@
 function Header(){
     return(
         <>
-            <header id="head" className="h-[750px] w-full relative overflow-hidden ">
+            <header id="head" className="md:h-[750px] md:w-full relative overflow-hidden ">
             <img src='/header/demonSlayer.jpg' alt="serie imagen" className="h-full w-full relative object-cover"></img>
                 <div className="h-full w-full absolute top-32 left-12 ">
                     <img src='/header\logoDemon.png' alt="serie imagen" className="h-2/5"></img>
