@@ -14,7 +14,7 @@ function Tarjeta(props:CardProps){
     const [barralike,setBarraLike]=useState({like:'hidden',circle:'border-4 border-gray-400'});
     //este bloque anima la tarjeta para aumentar de tamaño 
     const increaseSizeCard=()=>{
-        setStyles({...styles,sizeCard:' h-72 w-80 z-50 shadow-xl shadow-black', sizeImg:'h-1/2 w-full',menuCard:'visible'})
+        setStyles({...styles,sizeCard:' h-72 w-80 z-40 shadow-xl shadow-black', sizeImg:'h-1/2 w-full',menuCard:'visible'})
     }
     const decreaseSizeCard=()=>{
         setStyles({...styles,sizeCard:'h-full w-full', sizeImg:'h-full',menuCard:'hidden'})
@@ -68,7 +68,7 @@ function Tarjeta(props:CardProps){
                         </div>
                         <Icon id={`arrow${props.id}`} src='/logo/arrow.svg' text='Episodios e info' position='absolute right-5' style='border-4 border-gray-400 hover:border-white hover:bg-neutral-800' iconHeight='h-7'></Icon>
                     </div>
-                    <div className='absolute top-16 h-14 px-5 z-50 w-full'>
+                    <div className='absolute top-16 h-14 px-5 z-40 w-full'>
                         <div className='flex'>
                             <p className='text-sm text-green-500 mr-2'>{card?.afinidad}</p>
                             <div className='text-sm text-neutral-500 mr-2 border-2 rounded px-1'>{card?.calsificacion}</div>

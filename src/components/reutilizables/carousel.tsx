@@ -64,7 +64,7 @@ function Carousel(props:CarouselProps){
                 <img src='/logo/arrow.svg' className={`${currentBlock>0? 'visible':'hidden'} rotate-90 h-2/3`}></img> 
             </button>
             <div className='w-11/12 h-full flex relative '>
-                <p className='absolute left-0 -top-10 text-2xl font-bold ml-4 -z-10'>{props.title}</p>
+                <p className='absolute left-0 -top-8 text-base sm:text-2xl font-bold -z-10'>{props.title}</p>
                 {ListaMock.orden.map(id=> <Block key={id} id={`${props.id}block${id-1}`} style={`${blockStyle} transition-width duration-1000 ease-in-out w-full relative flex-shrink-0 `}/>)}
             </div>
             <button id='next' disabled={currentBlock<ListaMock.orden.length-1? false:true} onClick={nextImage} className={`${currentBlock<ListaMock.orden.length-1? 'bg-black/50':'bg-transparent'} bg-black/50 w-16 h-full relative z-40`}>

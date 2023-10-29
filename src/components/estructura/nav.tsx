@@ -4,7 +4,7 @@ import  '../../css/utils.css';
 function Nav(){
     const flexAlign=" flex items-center";
     const [gradiente,setGradiente]=useState('to-transparent');
-    const [seeIcon,setSeeIcon]=useState({'notify':'hidden','banner':'hidden',tooltip:'tooltipbanner left-96 md:left-6'});
+    const [seeIcon,setSeeIcon]=useState({'notify':'hidden','banner':'hidden',tooltip:''});
     const [search,setSearch]=useState({
         'w':'w-5',
         'bg':'',
@@ -94,9 +94,9 @@ function Nav(){
         if(banner){
             banner.addEventListener("mouseenter", () => {
                 // Este código se ejecuta cuando el cursor entra en el elemento
-                setSeeIcon({...seeIcon,'banner':'',tooltip:'tooltipbanner rotate-180 left-6'});
+                setSeeIcon({...seeIcon,'banner':'',tooltip:'rotate-180'});
                 bannerInfo?.addEventListener("mouseenter",()=>{
-                    setSeeIcon({...seeIcon,'banner':'',tooltip:'tooltipbanner rotate-180 left-6'});
+                    setSeeIcon({...seeIcon,'banner':'',tooltip:' rotate-180 '});
                     bannerInfo?.addEventListener("mouseleave", () => {
                         // Este código se ejecuta cuando el cursor sale del elemento
                         setSeeIcon({...seeIcon,'banner':'hidden'});
@@ -111,13 +111,13 @@ function Nav(){
     },[]);
 
     return(
-        <nav className={`text-sm h-14 flex items-center w-full fixed z-50 bg-gradient-to-b from-black ${gradiente} `}>
-            <ul className="space-x-4 w-full flex">
-                <li className= {`${flexAlign} md:w-1/12`} >
-                    <img src='/logo/netflix.svg' alt="netflix logo" className="h-6 ml-2 md:ml-10"></img>
+        <nav className={`text-sm h-14  flex items-center w-full fixed z-50 bg-gradient-to-b from-black ${gradiente} `}>
+            <ul className=" w-full flex">
+                <li className= {`${flexAlign} w-20`} >
+                    <img src='/logo/netflix.svg' alt="netflix logo" className="h-6 ml-4"></img>
                 </li>
 
-                <li className={`w-0 md:w-full ${flexAlign} overflow-hidden`} >
+                <li className={`max-lg:hidden ${flexAlign}`} >
                     <a href="#" className="mr-4 ml-10">Inicio</a>
                     <a href="#" className="mr-4">Series</a>
                     <a href="#" className="mr-4">Peliculas</a>
@@ -126,22 +126,23 @@ function Nav(){
                     <a href="#" className="mr-4">Explorar por idiomas</a>
                 </li>
 
-                <li className='w-full md:w-1/6'></li>
-
-                 <li className={`${flexAlign} w-1/12 relative`} >
-                    <div className={`${flexAlign} absolute md:right-32 right-4 h-8 transition-width duration-150 ease-in ${search.bg} ${search.w}`}>
+                 <li className={`${flexAlign} h-6 -translate-y-1/2 absolute right-0 top-1/2`} >
+                    <div id='search' className={`${flexAlign} relative right-4   h-8 transition-width duration-150 ease-in ${search.bg} ${search.w}`}>
                         <button  onClick={(e) => { e.stopPropagation(); searchclick();}} className={`${flexAlign}`}>
                             <img src='/logo/search.svg' alt="netflix logo" className="h-5 w-5 absolute left-1 z-10"/>
                             <input id='inputSearch' placeholder='Titulo, personas, género' className={`absolute left-7 bg-transparent outline-none ${search.inputW}`} onClick={(e) => e.stopPropagation()}/>
                         </button>
                     </div>
 
-                    <img id='notification' src='/logo/notification.svg' alt="notification" className="h-5  absolute right-24 w-0 md:w-5"/>
-                    <div id='notificationInfo' className={`${seeIcon.notify} border-t-4 tooltiptop absolute bg-black/50 border-2 w-56 h-20 top-8 right-24`}></div>
+                    <img id='notification' src='/logo/notification.svg' alt="notification" className="h-5 w-5 mr-2 max-lg:hidden "/>
+                    <div id='notificationInfo' className={`${seeIcon.notify} border-t-4 tooltiptop absolute bg-black/50 border-2 w-56 h-20 top-8 right-20`}></div>
 
-                    <img id='banner' src='/logo/banner.svg' alt="banner" className="h-8  absolute right-14 w-0 md:w-8"/>
-                    <div className={seeIcon.tooltip}></div>
-                    <div id='bannerInfo' className={`${seeIcon.banner} flex items-end text-xs tooltiptop absolute bg-black/50 border-2 border-t-4 w-44 h-36 top-8 right-16`}>
+                    
+                    <div className='mr-6 relative flex max-lg:hidden ' >
+                        <img id='banner' src='/logo/banner.svg' alt="banner" className="h-8  "/>
+                        <img src="/logo/tooltip.svg" alt="tooltip" className={`ml-1 w-4 ${seeIcon.tooltip}`}/>
+                    </div>
+                    <div id='bannerInfo' className={`${seeIcon.banner} flex items-end text-xs tooltiptop absolute bg-black/50 border-2 border-t-4 w-44 h-36 top-8 right-12`}>
                         <div className='absolute left-10 top-5'>Administrar Perfiles
                             <img src='/logo/admin.svg' alt="admin" className="h-5 absolute right-28 bottom-0"/>
                         </div>

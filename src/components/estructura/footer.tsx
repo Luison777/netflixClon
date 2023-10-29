@@ -1,7 +1,8 @@
+
 function Footer(){
     return(
         <>
-        <footer className="h-24 pl-10 md:pl-0 md:pl-60 md:pr-60 text-xs text-zinc-400 ">
+        <footer className="h-24 md:px-56 text-xs text-zinc-400 ">
            <div className="w-full mb-3 flex">
                 <img src="/logo/facebook.svg" alt="facebook" className="h-5 mx-2"/>
                 <img src="/logo/instagram.svg" alt="instagram" className="h-5 mx-2"/>
@@ -15,7 +16,7 @@ function Footer(){
                     <a href="#"className="block mb-3">Privacidad</a>
                     <a href="#"className="block mb-3">Contáctanos</a>
                 </li>
-                <li className="inline-block md:mr-20 mt-5">
+                <li className="inline-block mr-5 md:mr-20 mt-5">
                     <a href="#"className="block mb-3">Centro de ayuda</a>
                     <a href="#"className="block mb-3">Empleo</a>
                     <a href="#"className="block mb-3">Avisos legales</a>

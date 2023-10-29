@@ -29,7 +29,17 @@
     border-style: solid;
     border-color: transparent transparent white transparent;
   }
-
+  .tooltipbannerdown {
+    content: " ";
+    position: absolute;
+    top: 100%; 
+    left: 47%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    z-index: 500;
+  }
   .tooltipdown {
     content: " ";
     position: absolute;
@@ -72,3 +82,5 @@
      
   }
 }
+
+

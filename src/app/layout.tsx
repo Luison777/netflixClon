@@ -7,6 +7,7 @@ import Footer from "../components/estructura/footer";
 import Nav from "../components/estructura/nav";
 import CarouselList from '@/components/reutilizables/carouselList';
 import Memoria from '@/servicios/memoria';
+import ResponsiveNav from '@/components/estructura/responsiveNav';
 
 
 
@@ -34,6 +35,7 @@ export default function RootLayout(props: {
         </Main>
         </Memoria>
         <Footer></Footer>
+        <ResponsiveNav></ResponsiveNav>
       </body>
     </html>
   )
