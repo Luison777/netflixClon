@@ -5,7 +5,7 @@ function Main({
   }){
     return(
 
-        <main className="w-full relative lg:-top-[110px] overflow-hidden ">
+        <main className="w-full relative lg:-top-[150px] overflow-hidden ">
             {children}
         </main>
 

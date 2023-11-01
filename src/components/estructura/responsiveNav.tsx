@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react';
 import { useEffect } from "react";
+import Link from 'next/link';
 
 export default function ResponsiveNav(){
     const[seeMenu,setSeeMenu]=useState(false);
@@ -44,12 +45,12 @@ export default function ResponsiveNav(){
         <div className="fixed lg:hidden bottom-0 bg-black w-full h-10 flex justify-center items-center text-sm z-40 ">
             <button className='border-2 p-1 rounded-full text-xs' onClick={menu}>Categorias</button>
             <ul className={`bg-black w-full absolute bottom-full text-xs text-center border-t ${seeMenu? '':'hidden'}`}>
-                <li className='w-full hover:bg-neutral-800 mt-1'><a href="#">Inicio</a></li>
-                <li className='w-full hover:bg-neutral-800 mt-1'><a href="#">Series</a></li>
-                <li className='w-full hover:bg-neutral-800 mt-1'><a href="#">Peliculas</a></li>
-                <li className='w-full hover:bg-neutral-800 mt-1'><a href="#">Novedades populares</a></li>
-                <li className='w-full hover:bg-neutral-800 mt-1'><a href="#">Mi lista</a></li>
-                <li className='w-full hover:bg-neutral-800 mt-1'><a href="#">Explorar por idiomas</a></li>
+                <Link  href="/"><p className='w-full hover:bg-neutral-800 mt-1'>Inicio</p></Link >
+                <Link   href="/construction"><p className='w-full hover:bg-neutral-800 mt-1'>Series</p></Link >
+                <Link  href="/construction"><p className='w-full hover:bg-neutral-800 mt-1'>Peliculas</p></Link>
+                <Link   href="/construction"><p className='w-full hover:bg-neutral-800 mt-1'>Novedades populares</p></Link>
+                <Link href="/construction"><p className='w-full hover:bg-neutral-800 mt-1'>Mi lista</p ></Link >
+                <Link  href="/construction"><p  className='w-full hover:bg-neutral-800 mt-1'>Explorar por idiomas</p></Link>
             </ul>
 
             <div className='absolute right-20 '>

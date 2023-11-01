@@ -1,6 +1,9 @@
 'use client'
 import { useEffect, useState} from 'react';
 import  '../../css/utils.css';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation'
+
 function Nav(){
     const flexAlign=" flex items-center";
     const [gradiente,setGradiente]=useState('to-transparent');
@@ -11,7 +14,7 @@ function Nav(){
         'inputW':'hidden',
         'open':false
     });
-
+    const pathname = usePathname()
  //este bloque maneja la animacion del background de la barra nav
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -109,21 +112,21 @@ function Nav(){
             });
         }
     },[]);
-
+    
     return(
         <nav className={`text-sm h-14  flex items-center w-full fixed z-50 bg-gradient-to-b from-black ${gradiente} `}>
             <ul className=" w-full flex">
                 <li className= {`${flexAlign} w-20`} >
                     <img src='/logo/netflix.svg' alt="netflix logo" className="h-6 ml-4"></img>
                 </li>
-
+                <p></p>
                 <li className={`max-lg:hidden ${flexAlign}`} >
-                    <a href="#" className="mr-4 ml-10">Inicio</a>
-                    <a href="#" className="mr-4">Series</a>
-                    <a href="#" className="mr-4">Peliculas</a>
-                    <a href="#" className="mr-4">Novedades populares</a>
-                    <a href="#" className="mr-4">Mi lista</a>
-                    <a href="#" className="mr-4">Explorar por idiomas</a>
+                    <Link href="/" ><p className={`${pathname === '/' ? 'font-semibold' : ''} mr-4 ml-10`}>Inicio</p></Link>
+                    <Link href="/construction" className="mr-4">Series</Link>
+                    <Link href="/construction" className="mr-4">Peliculas</Link>
+                    <Link href="/construction" className="mr-4">Novedades Populares</Link>
+                    <Link href="/construction" className="mr-4">Mi lista</Link>
+                    <Link href="/construction" className="mr-4">Explorar por idiomas</Link>
                 </li>
 
                  <li className={`${flexAlign} h-6 -translate-y-1/2 absolute right-0 top-1/2`} >

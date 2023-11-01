@@ -57,7 +57,7 @@ function Modal(id: {
     let modalData;
     if(listaModal){modalData=listaModal[id.id]};
     //este bloque cierra el modal al dar click fuera del contenido
-    const router = useRouter()
+    const router = useRouter();
     function closeModal(){
         router.back();
     }
@@ -76,23 +76,25 @@ function Modal(id: {
             <div className="w-full xl:w-7/12 xl:top-10 bg-negro-netflix-ligero rounded absolute left-1/2 -translate-x-1/2 " onClick={event=>event?.stopPropagation()}>
                 <section id="principal">
                 <div className=" md:h-[600px] overflow-hidden relative">
-                    <Link href='/' scroll={false} prefetch={false}>
-                        <Icon id="close" src='../logo/plus.svg' style={`hover:bg-black mr-2 bg-black/50 absolute top-5 right-5 z-10 h-1/6  md:h-10 md:w-10`} iconHeight='h-2/3 absolute rotate-45'></Icon>
-                    </Link>
+                    
+                    <Icon route="/" id="close" src='../logo/plus.svg' style={`hover:bg-black mr-2 bg-black/50 absolute top-5 right-5 z-10 h-1/6  md:h-10 md:w-10`} iconHeight='h-2/3 absolute rotate-45'></Icon>
+                    
                     <img src={`/series/${modal?.img}`} alt={modal?.img} className=" w-full h-full object-cover rounded relative" />
                     
                     <div className="absolute w-full h-1/6 bottom-5 left-0 md:w-full md:h-10 md:bottom-10 md:left-0 flex items-center">
-                        <button className="bg-white hover:bg-white/90 h-full w-full ml-10 mr-2 md:w-1/3 md:text-[1em] text-black text-xl font-semibold rounded flex items-center justify-center">
+                        <button onClick={()=>router.push('/video')} className="bg-white hover:bg-white/90 h-full w-full ml-10 mr-2 md:w-1/3 md:text-[1em] text-black text-xl font-semibold rounded flex items-center justify-center">
                             <img src='../logo/play.svg' alt="serie imagen" className="h-2/3 "></img>
                                 Reproducir
                         </button>
-                        <Icon id="plus" src='../logo/plus.svg' text='Agregar'  style={`${barralike.circle} hover:bg-neutral-800 mr-2 bg-black/50 h-5/6 md:h-10 md:w-10`} iconHeight='h-2/3 absolute'></Icon>
+                        <div className="flex relative">
+                        <Icon id="plus" src='/logo/check.svg' mutable='/logo/plus.svg' mutableText='Agregar a mi lista' text='Quitar de mi lista'  style={`${barralike.circle} hover:bg-neutral-800 mr-2 bg-black/50 h-5/6 md:h-10 md:w-10`} iconHeight='h-1/2 absolute'></Icon>
                         <Icon id="like" src='../logo/like.svg' text='Me gusta'  style={`${barralike.circle} hover:bg-neutral-800 bg-black/50 relative h-5/6 mr-10 md:h-10 md:w-10`} iconHeight='h-2/3 absolute'></Icon>
-                            <div id="barralike" className={`${barralike.like} w-36 h-14 bg-black absolute left-[365px] -translate-x-1/2 -top-2 z-0 rounded-3xl bg-neutral-900 shadow-xl shadow-black `}>
+                            <div id="barralike" className={`${barralike.like} w-36 h-14 bg-black absolute left-0 -top-2 z-0 rounded-3xl bg-neutral-900 shadow-xl shadow-black `}>
                                 <Icon id={`dislike`} src='../logo/dislike.svg' text='No me gusta' position='absolute top-2 left-2' iconHeight='h-6 z-10' style='hover:bg-neutral-800'></Icon>
                                 <Icon id={`encanta`} src='../logo/encanta.svg' text='Me encanta' position='absolute top-2 right-2' iconHeight='h-6 z-10' style='hover:bg-neutral-800'></Icon>
                                 <Icon id="likedos" src='../logo/like.svg' text='Me gusta' position='absolute top-2 left-[65px]' style={` hover:bg-neutral-800 relative`} iconHeight='h-6 '></Icon>
                             </div>
+                        </div>
                     </div>
                 </div>
                 </section>
@@ -142,7 +144,7 @@ function Modal(id: {
                 
                         </div>
                     </div>
-                    <div id="episode1" className="w-full py-2 h-28 md:p-10 rounded border-b-2 ">
+                    <div id="episode1" className="w-full py-2 h-28 rounded border-b-2 ">
                         <div className="w-full h-full flex items-center overflow-hidden">
                             <p className="md:m-2">1</p>
                             <img src={`/series/${modal?.img}`} alt="eltanjiro" className="h-14 m-2 rounded" />
@@ -156,7 +158,7 @@ function Modal(id: {
                             </div>
                         </div>
                     </div>
-                    <div id="episode2" className={`${seeMoreEpisodes? 'visible':'hidden'} w-full py-2 h-28 md:p-10 rounded border-b-2`}>
+                    <div id="episode2" className={`${seeMoreEpisodes? 'visible':'hidden'} w-full py-2 h-28  rounded border-b-2`}>
                         <div className="w-full h-full flex items-center overflow-hidden">
                             <p className="md:m-2">2</p>
                             <img src={`/series/${modal?.img}`} alt="eltanjiro" className="h-14 m-2 rounded" />
@@ -171,7 +173,9 @@ function Modal(id: {
                         </div>
                     </div>
                     <div className="w-full bg-neutral-600 h-[3px] relative -top-[3px]" onClick={moreEpidodes}>
-                        <Icon id="arrowdown" src='../logo/arrow.svg' style={`hover:border-white border-2 border-neutral-400	 bg-neutral-600/50 h-8 w-8 absolute left-1/2 -translate-y-1/2 -translate-x-1/2`} iconHeight={`h-4 absolute ${seeMoreEpisodes? 'rotate-180':''}`}></Icon>
+                        <div className="hover:border-white border-2 border-neutral-400 bg-neutral-600/50 h-8 w-8 rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
+                            <img src="/logo/arrow.svg" alt="arrow" className={`h-4 ${seeMoreEpisodes? 'rotate-180':''}`}/>
+                        </div>
                     </div>
                 </div>
                 </section>
@@ -182,7 +186,9 @@ function Modal(id: {
                     <ModalCard seeMoreSeries={true}></ModalCard>
                     <ModalCard seeMoreSeries={seeMoreSeries}></ModalCard>
                     <div className="w-full bg-neutral-600 h-[3px] relative -top-[3px]" onClick={moreSeries}>
-                        <Icon id="arrowdown" src='../logo/arrow.svg' style={`hover:border-white border-2 border-neutral-400	 bg-neutral-600/50 h-8 w-8 absolute left-1/2 -translate-y-1/2 -translate-x-1/2`} iconHeight={`h-4 absolute ${seeMoreSeries? 'rotate-180':''}`}></Icon>
+                        <div className="hover:border-white border-2 border-neutral-400 bg-neutral-600/50 h-8 w-8 rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
+                            <img src="/logo/arrow.svg" alt="arrow" className={`h-4 ${seeMoreSeries? 'rotate-180':''}`}/>
+                        </div>
                     </div>
                 </div>
                 </section>
