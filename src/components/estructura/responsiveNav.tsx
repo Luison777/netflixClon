@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useEffect } from "react";
 import Link from 'next/link';
-
+import Image from 'next/image'
 export default function ResponsiveNav(){
     const[seeMenu,setSeeMenu]=useState(false);
     const[seeInfo,setSeeInfo]=useState({banner:false,notification:false});
@@ -23,7 +23,7 @@ export default function ResponsiveNav(){
         notification?.addEventListener('mouseleave',()=>{
             setSeeInfo({...seeInfo,notification:false});
         });
-    },[]);
+    });
      //este bloque anima el div de info del banner
      useEffect(()=>{
         const bannerMenu=document.getElementById('bannerMenu');
@@ -40,7 +40,7 @@ export default function ResponsiveNav(){
         bannerMenu?.addEventListener('mouseleave',()=>{
             setSeeInfo({...seeInfo,banner:false});
         });
-    },[]);
+    });
     return(
         <div className="fixed lg:hidden bottom-0 bg-black w-full h-10 flex justify-center items-center text-sm z-40 ">
             <button className='border-2 p-1 rounded-full text-xs' onClick={menu}>Categorias</button>
@@ -54,29 +54,34 @@ export default function ResponsiveNav(){
             </ul>
 
             <div className='absolute right-20 '>
-                <img id='notificationMenu' src='/logo/notification.svg' alt="notification" className="h-5 w-5 mr-2  "/>
+                <Image id='notificationMenu' src='/logo/notification.svg' alt="notification"  height={30} width={30} style={{marginRight:"5px"}}/>
                 <div id='notificationMenuInfo' className={`${seeInfo.notification? 'visible':'hidden'} border-t-4 absolute bg-black/50 border-2 w-56 h-20 bottom-full -translate-y-2 right-2`}>
-                    <img src='/logo/tooltip.svg' alt="tooltip" className={`relative top-full left-full -translate-x-full -translate-y-1/2 mt-1 w-4 `}/>
+                    <Image src='/logo/tooltip.svg' alt="tooltip" height={30} width={30} className='absolute right-0 top-full -translate-y-1/3'/>
                 </div>
             </div>
      
             <div className='mr-6 flex absolute right-0  ' >
-                <img id='bannerMenu' src='/logo/banner.svg' alt="banner" className="h-8  "/>
-                <img src='/logo/tooltip.svg' alt="tooltip" className={`ml-1 w-4 ${seeInfo.banner? 'rotate-180':''}`}/>
+                <Image id='bannerMenu' src='/logo/banner.svg' alt="banner" height={40} width={40}/>
+                <Image src='/logo/tooltip.svg' alt="tooltip" height={20} width={20} style={{marginRight:"5px"}} className={`${seeInfo.banner? 'rotate-180':''}`}/>
             </div>
             <div id='bannerMenuInfo' className={`${seeInfo.banner? 'visible':'hidden'} flex items-end text-xs absolute bg-black/50 border-2 border-t-4 w-44 h-36 bottom-full right-12`}>
                 
-                <div className='absolute left-10 top-5'>Administrar Perfiles
-                    <img src='/logo/admin.svg' alt="admin" className="h-5 absolute right-28 bottom-0"/>
+                <div className='absolute left-5 top-5 flex'>
+                    <Image src='/logo/admin.svg' alt="admin" height={25} width={25} style={{marginRight:"5px"}}/>
+                    Administrar Perfiles
                 </div>
-                <div className='absolute left-10 top-12'>Cuenta
-                    <img src='/logo/user.svg' alt="user" className="h-5 absolute right-12 bottom-0"/>
+                <div className='absolute left-5 top-12 flex'>
+                    <Image src='/logo/user.svg' alt="user" height={25} width={25} style={{marginRight:"5px"}}/>
+                    Cuenta
                 </div>
-                <div className='absolute left-10 top-20'>Centro de Ayuda    
-                    <img src='/logo/help.svg' alt="help" className="h-5 absolute right-24 bottom-0"/>
+                <div className='absolute left-5 top-20 flex'>  
+                    <Image src='/logo/help.svg' alt="help" height={25} width={25} style={{marginRight:"5px"}}/>
+                    Centro de Ayuda  
                 </div>
-                <div className='w-full border-t-2 h-8 py-2 px-5'>Cerrar Sesión de Netflix
-                    <img src='/logo/tooltip.svg' alt="tooltip" className={`relative top-full w-5 -translate-y-full mt-1 left-full`}/>
+                <div className='w-full border-t-2 h-8 py-2 px-5 relative'>
+                    Cerrar Sesión de Netflix
+                    <Image src='/logo/tooltip.svg' alt="tooltip" height={30} width={30} className='absolute right-1'/>
+                    
                 </div>
             </div>
         </div>

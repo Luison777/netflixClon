@@ -1,4 +1,5 @@
 import Icon from "../reutilizables/icon";
+import Image from 'next/image';
 interface ModalCardProps{
     seeMoreSeries?: boolean;
 }
@@ -7,7 +8,7 @@ export default function ModalCard(props:ModalCardProps){
     return(
         <div id="modalCardContainer" className={` flex flex-wrap w-full justify-center gap-4 mt-4 ${props.seeMoreSeries? 'visible':'hidden'} `}>
             <div id="tarjetaModal1" className="mt-2 md:w-1/3 h-72 bg-neutral-800 rounded overflow-hidden max-w-[250px] min-w-[200px]">
-                <img src="/header/tanjiro.png" alt="tanjiro" className="rounded h-28 w-full" />
+                <Image src="/header/tanjiro.png" alt="tanjiro" height={150} width={400} className="rounded" />
                  <div className="flex relative p-3">
                     <p className="text-sm text-green-500">95% para ti <br />
                         <span className=' text-neutral-500 mr-2 border-2 rounded px-1 text-white'>TV-14</span>
@@ -21,7 +22,7 @@ export default function ModalCard(props:ModalCardProps){
                 </div>
             </div>
             <div id="tarjetaModal2" className=" mt-2 md:w-1/3 h-72 bg-neutral-800 rounded overflow-hidden max-w-[250px] min-w-[200px]">
-                <img src="/series/theWalkingDead.jpg" alt="tanjiro" className="rounded h-28 w-full" />
+                <Image src="/series/theWalkingDead.jpg" alt="tanjiro" height={150} width={400} className="rounded" />
                 <div className="flex relative p-3">
                     <p className="text-sm text-green-500">95% para ti <br />
                         <span className=' text-neutral-500 mr-2 border-2 rounded px-1 text-white'>TV-14</span>
@@ -35,7 +36,7 @@ export default function ModalCard(props:ModalCardProps){
                 </div>
             </div>
             <div id="tarjetaModal3" className="mt-2 md:w-1/3 h-72 bg-neutral-800 rounded overflow-hidden max-w-[250px] min-w-[200px]">
-                <img src="/series/avatar.jpg" alt="tanjiro" className="rounded h-28 w-full" />
+                <Image src="/series/avatar.jpg" alt="tanjiro" height={150} width={400} className="rounded" />
                 <div className="flex relative p-3">
                     <p className="text-sm text-green-500">95% para ti <br />
                         <span className=' text-neutral-500 mr-2 border-2 rounded px-1 text-white'>TV-14</span>

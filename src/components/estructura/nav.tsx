@@ -3,7 +3,7 @@ import { useEffect, useState} from 'react';
 import  '../../css/utils.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
-
+import Image from 'next/image'
 function Nav(){
     const flexAlign=" flex items-center";
     const [gradiente,setGradiente]=useState('to-transparent');
@@ -48,7 +48,7 @@ function Nav(){
         return () => {
           window.removeEventListener('click', handleClick);
         };
-      }, [search.open]);
+      }, [search]);
 
     function searchclick(){
         if(search.w=='w-5'){
@@ -89,7 +89,7 @@ function Nav(){
                 setSeeIcon({...seeIcon,'notify':'hidden'});
             });
         }
-    },[]);
+    });
 //este bloque agrega la animacion al icono de banner
     useEffect(()=>{
     const banner=document.getElementById('banner');
@@ -111,13 +111,13 @@ function Nav(){
                 setSeeIcon({...seeIcon,'banner':'hidden'});
             });
         }
-    },[]);
+    },);
     
     return(
         <nav className={`text-sm h-14  flex items-center w-full fixed z-50 bg-gradient-to-b from-black ${gradiente} `}>
             <ul className=" w-full flex">
-                <li className= {`${flexAlign} w-20`} >
-                    <img src='/logo/netflix.svg' alt="netflix logo" className="h-6 ml-4"></img>
+                <li className= {`${flexAlign} w-20 relative`} >
+                    <Image src='/logo/netflix.svg' alt="netflix logo" height={50} width={200} style={{marginLeft:"20px"}}></Image>
                 </li>
                 <p></p>
                 <li className={`max-lg:hidden ${flexAlign}`} >
@@ -132,28 +132,31 @@ function Nav(){
                  <li className={`${flexAlign} h-6 -translate-y-1/2 absolute right-0 top-1/2`} >
                     <div id='search' className={`${flexAlign} relative right-4   h-8 transition-width duration-150 ease-in ${search.bg} ${search.w}`}>
                         <button  onClick={(e) => { e.stopPropagation(); searchclick();}} className={`${flexAlign}`}>
-                            <img src='/logo/search.svg' alt="netflix logo" className="h-5 w-5 absolute left-1 z-10"/>
+                            <Image src='/logo/search.svg' alt="netflix logo" height={30} width={30} style={{left:"10",zIndex:"10"}}/>
                             <input id='inputSearch' placeholder='Titulo, personas, género' className={`absolute left-7 bg-transparent outline-none ${search.inputW}`} onClick={(e) => e.stopPropagation()}/>
                         </button>
                     </div>
 
-                    <img id='notification' src='/logo/notification.svg' alt="notification" className="h-5 w-5 mr-2 max-lg:hidden "/>
+                    <Image id='notification' src='/logo/notification.svg' alt="notification" className="max-lg:hidden " height={25} width={25} style={{marginRight:"10px"}}/>
                     <div id='notificationInfo' className={`${seeIcon.notify} border-t-4 tooltiptop absolute bg-black/50 border-2 w-56 h-20 top-8 right-20`}></div>
 
                     
                     <div className='mr-6 relative flex max-lg:hidden ' >
-                        <img id='banner' src='/logo/banner.svg' alt="banner" className="h-8  "/>
-                        <img src="/logo/tooltip.svg" alt="tooltip" className={`ml-1 w-4 ${seeIcon.tooltip}`}/>
+                        <Image id='banner' src='/logo/banner.svg' alt="banner" height={40} width={40}/>
+                        <Image src="/logo/tooltip.svg" alt="tooltip" className={` ${seeIcon.tooltip}`} height={20} width={20} style={{marginLeft:"5px"}}/>
                     </div>
                     <div id='bannerInfo' className={`${seeIcon.banner} flex items-end text-xs tooltiptop absolute bg-black/50 border-2 border-t-4 w-44 h-36 top-8 right-12`}>
-                        <div className='absolute left-10 top-5'>Administrar Perfiles
-                            <img src='/logo/admin.svg' alt="admin" className="h-5 absolute right-28 bottom-0"/>
+                        <div className='absolute left-5  top-5 w-full flex'>
+                            <Image src='/logo/admin.svg' alt="admin"  height={25} width={25} style={{marginRight:"5px"}} />
+                             Administrar Perfiles
                         </div>
-                        <div className='absolute left-10 top-12'>Cuenta
-                            <img src='/logo/user.svg' alt="user" className="h-5 absolute right-12 bottom-0"/>
+                        <div className='absolute left-5 top-12 w-full flex'>
+                            <Image src='/logo/user.svg' alt="user"  height={25} width={25} style={{marginRight:"5px"}}/>
+                            Cuenta
                         </div>
-                        <div className='absolute left-10 top-20'>Centro de Ayuda    
-                            <img src='/logo/help.svg' alt="help" className="h-5 absolute right-24 bottom-0"/>
+                        <div className='absolute left-5 top-20 w-full flex'>  
+                            <Image src='/logo/help.svg' alt="help"  height={25} width={25} style={{marginRight:"5px"}}/>
+                            Centro de Ayuda  
                         </div>
                         <div className='w-full border-t-2 h-8 py-2 px-5'>Cerrar Sesión de Netflix</div>
                     </div>

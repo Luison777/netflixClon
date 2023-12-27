@@ -1,7 +1,8 @@
 "use client"
 import {useEffect, useState,} from 'react';
 import  '../../css/utils.css';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 interface IconProps {
     id: string,
     text?:string,
@@ -27,11 +28,11 @@ function Icon(props:IconProps){
         element?.addEventListener('mouseleave',()=>{
             setPropsIcon({...propsIcon,info:'hidden'});
         })
-    },[]);
+    });
 
     return(
         <div onClick={(event)=>{event.stopPropagation(); props.route? router.push(`${props.route}`,{ scroll:false }):null; setMutableIcon(!mutableIcon)}} id={props.id} className={`${props.position} ${props.style} rounded-full h-10 w-10 flex items-center justify-center`}>
-            <img  src={props.mutable? mutableIcon? props.src:props.mutable :props.src} alt={props.id} className={props.iconHeight}/>
+            <Image  src={props.mutable? mutableIcon? props.src:props.mutable :props.src} alt={props.id} className={props.iconHeight} height={50} width={50}/>
             <div className={`${propsIcon.info} absolute bottom-14 whitespace-nowrap bg-white text-black rounded-md px-3 ${props.text? 'tooltipbottom':''} `}>{props.mutable? mutableIcon? props.text:props.mutableText : props.text}</div>
             {props.children}
         </div>

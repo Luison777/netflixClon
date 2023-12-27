@@ -2,7 +2,8 @@
 import { useEffect, useState,} from 'react';
 import Block from './block';
 import  '../../css/utils.css';
-import { list } from 'postcss';
+
+import Image from 'next/image'
 interface CarouselProps{
     id:string,
     title: string,
@@ -37,7 +38,7 @@ function Carousel(props:CarouselProps){
                 else{blockPlus? blockPlus.style.width='0':console.log('el bloque no exsite');}
                 break;
         }
-    },[currentBlock]);
+    },[currentBlock,pressPrevious,props.id]);
     //estas son las funciones usadas para los botones next y previous 
     const nextImage = () => {
         setCurrentBlock(currentBlock+1);
@@ -61,7 +62,7 @@ function Carousel(props:CarouselProps){
     return(
         <div id={props.id} className={`flex justify-between items-center h-28 w-full ${props.style} relative my-24 -top-10  ${overCarousel? 'z-40':'z-0'} `}>
             <button id='previous' disabled={currentBlock>0? false:true} onClick={previousImage} className={`${currentBlock>0? 'bg-black/50':'bg-transparent'} w-16 h-full relative z-40`}>
-                <img src='/logo/arrow.svg' className={`${currentBlock>0? 'visible':'hidden'} rotate-90 h-2/3`}></img> 
+                <Image src='/logo/arrow.svg' alt='previous' className={`${currentBlock>0? 'visible':'hidden'} rotate-90 `} height={100} width={100}/>
             </button>
             <div className='absolute h-1 right-20 -top-5 flex'>
                 {ListaMock.orden.map(id=> <div key={id} className={`${currentBlock==id-1? 'bg-neutral-300/90':''} bg-neutral-500/50 h-full w-3 mx-1`}/>)}
@@ -71,7 +72,7 @@ function Carousel(props:CarouselProps){
                 {ListaMock.orden.map(id=> <Block key={id} id={`${props.id}block${id-1}`} style={`${blockStyle} transition-width duration-1000 ease-in-out w-full relative flex-shrink-0 `}/>)}
             </div>
             <button id='next' disabled={currentBlock<ListaMock.orden.length-1? false:true} onClick={nextImage} className={`${currentBlock<ListaMock.orden.length-1? 'bg-black/50':'bg-transparent'} bg-black/50 w-16 h-full relative z-40`}>
-                <img src='/logo/arrow.svg' className={`${currentBlock<ListaMock.orden.length-1? 'visible':'hidden'} -rotate-90 h-2/3 `}></img> 
+                <Image src='/logo/arrow.svg' alt='next' className={`${currentBlock<ListaMock.orden.length-1? 'visible':'hidden'} -rotate-90 `} height={100} width={100}/>
             </button>
         </div>
     )

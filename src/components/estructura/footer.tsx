@@ -1,13 +1,13 @@
-
+import Image from 'next/image'
 function Footer(){
     return(
         <>
         <footer className="h-24 md:px-56 text-xs text-zinc-400 ">
-           <div className="w-full mb-3 flex">
-                <img src="/logo/facebook.svg" alt="facebook" className="h-5 mx-2"/>
-                <img src="/logo/instagram.svg" alt="instagram" className="h-5 mx-2"/>
-                <img src="/logo/twitter.svg" alt="Twitter" className="h-5 mx-2"/>
-                <img src="/logo/youtube.svg" alt="youtube" className="h-5 mx-2"/>
+           <div className="w-full mb-3 flex relative">
+                <Image src="/logo/facebook.svg" alt="facebook" height={25} width={25} style={{marginRight:"10px"}}/>
+                <Image src="/logo/instagram.svg" alt="instagram" height={25} width={25}style={{marginRight:"10px"}}/>
+                <Image src="/logo/twitter.svg" alt="Twitter" height={25} width={25}style={{marginRight:"10px"}}/>
+                <Image src="/logo/youtube.svg" alt="youtube" height={25} width={25}style={{marginRight:"10px"}}/>
            </div>
            <ul className="flex items-start mb-1 flex-wrap w-full">
                 <li className="inline-block md:mr-20 mt-5">

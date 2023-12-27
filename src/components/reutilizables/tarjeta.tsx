@@ -5,7 +5,8 @@ import Icon from './icon';
 import Link from 'next/link'
 import { useContext} from 'react';
 import { Contexto } from '@/servicios/memoria';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 interface CardProps {
     id: string,
     style?:string
@@ -24,7 +25,7 @@ function Tarjeta(props:CardProps){
         timeOutId = setTimeout(()=>{
         setStyles(
             {...styles,
-                sizeCard:' h-72 w-80 z-40 shadow-xl shadow-black', 
+                sizeCard:' h-40 w-80 z-40', 
                 sizeImg:'h-1/2 w-full',
                 menuCard:'visible'})
         if (video){
@@ -47,7 +48,7 @@ function Tarjeta(props:CardProps){
         const card=document.getElementById(props.id);
         card?.addEventListener("mouseenter",increaseSizeCard);
         card?.addEventListener("mouseleave",decreaseSizeCard);
-    },[]);
+    });
     //este bloque anima el boton like de la tarjeta
     useEffect(()=>{
         const like=document.getElementById(`like${props.id}`);
@@ -70,7 +71,7 @@ function Tarjeta(props:CardProps){
                 });
             });
         })
-    },[]);
+    });
     //este bloque obtiene el contexto de la memoria y los datos de cada tarjeta 
     const lista=useContext(Contexto);
     let card;
@@ -79,14 +80,14 @@ function Tarjeta(props:CardProps){
     return(
         <div className={'relative h-full w-1/6 mr-2 rounded-md '}>
             <div id={props.id} className={`${styles.sizeCard} ${props.style} absolute translate-y-3/4 bottom-3/4 rounded bg-negro-netflix-ligero `}>
-                <img alt={card?.img} src={`/series/${card?.img}`} className={`${styles.sizeImg} w-full object-cover rounded`}></img>
-                <div id={`video${props.id}`} onClick={()=>router.push('/video') } className=' bg-black absolute top-0 rounded h-full flex items-center hidden'>
+                <Image alt={card? card?.img:''} src={`/series/${card?.img}`} fill={true} className={`${styles.sizeImg} rounded`} style={{  objectFit: 'cover'}}/>
+                <div id={`video${props.id}`} onClick={()=>router.push('/video') } className=' bg-black relative top-0 rounded h-full flex items-center hidden'>
                     <video id={`mp4${props.id}`} src="/series/video.mp4" className='rounded w-full h-auto' muted ></video>
                     <p className='absolute top-1/4 left-1/2 -translate-x-1/2 z-50'>Video ilustrativo</p>
                 </div>
             
                 <button onClick={()=>router.push(`/modal/${props.id}`,{ scroll:false })} className={`${styles.menuCard} h-1/2 w-full bg-negro-netflix-ligero relative rounded-br rounded-bl`}>
-                    <div className='absolute top-2 w-full flex'>
+                    <div className='absolute top-2 w-full flex bg-negro-netflix-ligero '>
                         <Icon route='/video' id={`play${props.id}`} src='/logo/play.svg' text='Play'  style='bg-white hover:bg-neutral-300 ml-5' iconHeight='h-8 ml-1'></Icon>
                         <Icon id={`check${props.id}`} src='/logo/check.svg' mutable='/logo/plus.svg' mutableText='Agregar a mi lista' text='Quitar de mi lista'  style='mx-2 border-4 border-gray-400 hover:border-white hover:bg-neutral-800' iconHeight='h-6'></Icon>
                         <Icon id={`like${props.id}`} src='/logo/like.svg' text='Me gusta'  style={`${barralike.circle} hover:bg-neutral-800`} iconHeight='h-6 absolute z-10'></Icon>
@@ -96,7 +97,7 @@ function Tarjeta(props:CardProps){
                         </div>
                         <Icon route={`/modal/${props.id}`} id={`arrow${props.id}`} src='/logo/arrow.svg' text='Episodios e info' position='absolute right-5' style='border-4 border-gray-400 hover:border-white hover:bg-neutral-800' iconHeight='h-7'></Icon>
                     </div>
-                    <div className='absolute top-16 h-14 px-5 z-40 w-full'>
+                    <div className='absolute top-16 h-14 px-5 z-40 w-full bg-negro-netflix-ligero rounded shadow-xl shadow-black'>
                         <div className='flex'>
                             <p className='text-sm text-green-500 mr-2'>{card?.afinidad}</p>
                             <div className='text-sm text-neutral-500 mr-2 border-2 rounded px-1'>{card?.calsificacion}</div>

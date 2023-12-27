@@ -4,8 +4,9 @@ import Icon from "../reutilizables/icon";
 import { useEffect, useState,} from 'react';
 import { useContext} from 'react';
 import { Contexto, contextoModal } from '@/servicios/memoria';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import ModalCard from "./modalcard";
+import Image from 'next/image';
 
 function Modal(id: {
     id: string;
@@ -79,11 +80,11 @@ function Modal(id: {
                     
                     <Icon route="/" id="close" src='../logo/plus.svg' style={`hover:bg-black mr-2 bg-black/50 absolute top-5 right-5 z-10 h-1/6  md:h-10 md:w-10`} iconHeight='h-2/3 absolute rotate-45'></Icon>
                     
-                    <img src={`/series/${modal?.img}`} alt={modal?.img} className=" w-full h-full object-cover rounded relative" />
+                    <Image src={`/series/${modal?.img}`} alt={modal? modal?.img:''} fill={true}/>
                     
                     <div className="absolute w-full h-1/6 bottom-5 left-0 md:w-full md:h-10 md:bottom-10 md:left-0 flex items-center">
                         <button onClick={()=>router.push('/video')} className="bg-white hover:bg-white/90 h-full w-full ml-10 mr-2 md:w-1/3 md:text-[1em] text-black text-xl font-semibold rounded flex items-center justify-center">
-                            <img src='../logo/play.svg' alt="serie imagen" className="h-2/3 "></img>
+                            <Image src='../logo/play.svg' alt="serie imagen" height={40} width={40}/>
                                 Reproducir
                         </button>
                         <div className="flex relative">
@@ -147,7 +148,7 @@ function Modal(id: {
                     <div id="episode1" className="w-full py-2 h-28 rounded border-b-2 ">
                         <div className="w-full h-full flex items-center overflow-hidden">
                             <p className="md:m-2">1</p>
-                            <img src={`/series/${modal?.img}`} alt="eltanjiro" className="h-14 m-2 rounded" />
+                            <Image src={`/series/${modal?.img}`} alt="eltanjiro" height={80} width={120} className="m-2 rounded" />
                             <div className="relative w-full">
                                 <p className="absolute top-0 left-0 text-sm"> Sed id metus in nulla.</p>
                                 <p className="absolute top-0 right-0 text-semibold text-sm">24 min</p>
@@ -161,7 +162,7 @@ function Modal(id: {
                     <div id="episode2" className={`${seeMoreEpisodes? 'visible':'hidden'} w-full py-2 h-28  rounded border-b-2`}>
                         <div className="w-full h-full flex items-center overflow-hidden">
                             <p className="md:m-2">2</p>
-                            <img src={`/series/${modal?.img}`} alt="eltanjiro" className="h-14 m-2 rounded" />
+                            <Image src={`/series/${modal?.img}`} alt="eltanjiro" height={80} width={120} className=" m-2 rounded" />
                             <div className="relative w-full">
                                 <p className="absolute top-0 left-0 text-sm"> Sed id metus in nulla.</p>
                                 <p className="absolute top-0 right-0 text-semibold text-sm">24 min</p>
@@ -174,7 +175,7 @@ function Modal(id: {
                     </div>
                     <div className="w-full bg-neutral-600 h-[3px] relative -top-[3px]" onClick={moreEpidodes}>
                         <div className="hover:border-white border-2 border-neutral-400 bg-neutral-600/50 h-8 w-8 rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
-                            <img src="/logo/arrow.svg" alt="arrow" className={`h-4 ${seeMoreEpisodes? 'rotate-180':''}`}/>
+                            <Image src="/logo/arrow.svg" alt="arrow" height={40} width={40} className={`h-4 ${seeMoreEpisodes? 'rotate-180':''}`}/>
                         </div>
                     </div>
                 </div>
@@ -187,7 +188,7 @@ function Modal(id: {
                     <ModalCard seeMoreSeries={seeMoreSeries}></ModalCard>
                     <div className="w-full bg-neutral-600 h-[3px] relative -top-[3px]" onClick={moreSeries}>
                         <div className="hover:border-white border-2 border-neutral-400 bg-neutral-600/50 h-8 w-8 rounded-full absolute left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
-                            <img src="/logo/arrow.svg" alt="arrow" className={`h-4 ${seeMoreSeries? 'rotate-180':''}`}/>
+                            <Image src="/logo/arrow.svg" alt="arrow" height={40} width={40} className={`h-4 ${seeMoreSeries? 'rotate-180':''}`}/>
                         </div>
                     </div>
                 </div>
